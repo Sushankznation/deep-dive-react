@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 function App() {
-  const [length, setLength] = useState(6);
+  const [length, setLength] = useState(5);
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setpassword] = useState("");
