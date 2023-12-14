@@ -11,18 +11,3 @@ export default function Error() {
     </div>
   );
 }
-// do
-// do
-// do
-// do// do
-
-// do
-// do
-// do
-// do
-// do
-// do
-// do
-// do
-// do
-// do
