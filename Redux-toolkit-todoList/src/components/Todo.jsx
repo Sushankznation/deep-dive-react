@@ -8,9 +8,17 @@ export default function Todo() {
   const todos = useSelector((state) => state.todos);
   const [updatedText, setUpdatedtext] = useState("");
 
-  const handleUpdateClick = (todo, updatedText) => {
-    dispatch(updateTodo({ id: todo.id, newText: updatedText }));
+  const handleUpdateClick = (todo) => {
+    // Use prompt to get user input for the updated text
+    const updatedText = prompt("Enter updated text:", todo.textValue);
+
+    // Check if the user provided input (not canceled)
+    if (updatedText !== null) {
+      // Dispatch the updateTodo action with the updated text
+      dispatch(updateTodo({ id: todo.id, newText: updatedText }));
+    }
   };
+
   return (
     <>
       <AddTodo />
@@ -43,7 +51,7 @@ export default function Todo() {
               </svg>
             </button>{" "}
             <button
-               onClick={() => handleUpdateClick(todo, updatedText)}
+              onClick={() => handleUpdateClick(todo, updatedText)}
               className="text-white bg-blue-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
             >
               edit
