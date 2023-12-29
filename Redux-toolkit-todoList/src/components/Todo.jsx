@@ -21,13 +21,13 @@ export default function Todo() {
   };
 
   return (
-    <>
+    <div className="h-screen bg-gray-200 w-full flex justify-center items-center flex-col">
       <AddTodo />
       <ToastContainer />
-      <ul className="list-none">
+      <ul className="list-none w-8/12 ml-auto text-center">
         {todos.map((todo) => (
           <li
-            className="mt-4 flex justify-between items-center bg-blue-800 px-4 py-2 rounded"
+            className="mt-4 flex justify-between items-center bg-blue-800 px-4 py-2 rounded w-6/12"
             key={todo.id}
           >
             <div className="text-white">{todo.textValue}</div>
@@ -60,6 +60,6 @@ export default function Todo() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }

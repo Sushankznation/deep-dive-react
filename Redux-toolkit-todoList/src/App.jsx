@@ -4,8 +4,10 @@ import { Provider } from "react-redux";
 function App() {
   return (
     <Provider store={store}>
-      <h1 className="text-center weight-400">Todo App </h1>
-      <Todo />
+      <div className="flex-1">
+        <h1 className="text-center font-bold">Todo App </h1>
+        <Todo />
+      </div>
     </Provider>
   );
 }
