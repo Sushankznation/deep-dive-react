@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import Todo from './components/Todo'
+import { store } from "./App/store";
+import Todo from "./components/Todo";
+import { Provider } from "react-redux";
 function App() {
   return (
-    <>
-   <h1>Hello From APP</h1>
-   <Todo/>
-    </>
-  )
+    <Provider store={store}>
+      <h1>Hello From APP</h1>
+      <Todo />
+    </Provider>
+  );
 }
 
-export default App
+export default App;
