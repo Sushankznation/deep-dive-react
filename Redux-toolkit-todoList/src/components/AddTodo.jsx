@@ -9,7 +9,7 @@ export default function AddTodo() {
     e.preventDefault();
     dispatch(addTodo(input));
     //BAsically dispatch reducer ko use krke value store krta h
-    setInput("")
+    setInput("");
   };
 
   return (

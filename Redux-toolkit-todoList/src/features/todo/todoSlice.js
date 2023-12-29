@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 // CreateSlice basically we use when we want to create a new SLice
 // nanoid just helps us to create new  and uniques id
@@ -19,19 +21,19 @@ export const TodoSlice = createSlice({
     // reducers contain Properties and Function
     addTodo: (state, action) => {
       const newText = action.payload.trim(); // Remove leading and trailing spaces
-    
+
       if (newText !== "") {
         const todo = {
           id: nanoid(),
           text: newText,
         };
         state.todos.push(todo);
-        alert("Added Successfully")
+        toast.success("Task Added");
       } else {
-        alert("Cannot add an empty todo");
+        toast.error("Empty Value Not allowed");
       }
     },
-    
+
     // (state,action)
     //state : holds the current state
     //  action : tells where we need to impact that action like keys detector for add todo, delete etc.

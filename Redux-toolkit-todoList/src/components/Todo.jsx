@@ -1,6 +1,7 @@
 import { removeTodo, updateTodo } from "../features/todo/todoSlice";
-import AddTodo from "./AddTodo";
+import { ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
+import AddTodo from "./AddTodo";
 export default function Todo() {
   const dispatch = useDispatch(removeTodo(), updateTodo());
   const todos = useSelector((state) => state.todos);
@@ -11,7 +12,8 @@ export default function Todo() {
   };
   return (
     <>
-      <AddTodo />
+     <AddTodo/>
+     <ToastContainer />
       <ul className="list-none">
         {todos.map((todo) => (
           <li
