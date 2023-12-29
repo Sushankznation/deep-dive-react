@@ -1,9 +1,16 @@
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { addTodo } from "../features/todo/todoSlice";
 export default function AddTodo() {
   const [input, setInput] = useState("");
+  const dispatch = useDispatch();
+
   const addTodoHandler = (e) => {
-   e.preventDefault();
+    e.preventDefault();
+    dispatch(addTodo(input));
+    //BAsically dispatch reducer ko use krke value store krta h
+    alert("New Added");
+    setInput("")
   };
 
   return (
