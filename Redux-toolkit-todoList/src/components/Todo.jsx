@@ -1,5 +1,5 @@
 import { removeTodo, updateTodo } from "../features/todo/todoSlice";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import AddTodo from "./AddTodo";
 import { useState } from "react";
@@ -16,6 +16,7 @@ export default function Todo() {
     if (updatedText !== null) {
       // Dispatch the updateTodo action with the updated text
       dispatch(updateTodo({ id: todo.id, newText: updatedText }));
+      toast.success("Updated Value Successfully ")
     }
   };
 
