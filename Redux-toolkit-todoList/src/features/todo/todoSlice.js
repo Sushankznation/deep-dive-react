@@ -11,15 +11,34 @@ const initialState = {
 };
 // initialState its basically the default state of the app
 export const TodoSlice = createSlice({
-    //It always store Object
-name : 'Todo',
-//name is basically we use to identify the Slice, important it is 
-initialState,
-reducers:{
-    // reducers contain Properties and Function 
-    addTodo : (state,action)=>{},
-    // (state,action) syntax which imply means that we will always have 
-    removeTodo : ()=>{},
-}
+  //It always store Object
+  name: "Todo",
+  //name is basically we use to identify the Slice, important it is
+  initialState,
+  reducers: {
+    // reducers contain Properties and Function
+    addTodo: (state, action) => {
+      const todo = {
+        id: nanoid(),
+        text: action.payload,
+      };
+      state.todos.push(todo);
+    },
+    // (state,action)
+    //state : holds the current state
+    //  action : tells where we need to impact that action like keys detector for add todo, delete etc.
+    // action.payload like
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter((task) => task.id !== action.payload);
+    },
+    updateTodo: (state, action) => {
+      // destructure
+      const { id, newText } = action.payload;
+      state.todos = state.todos.map((e) =>
+        e.id === id ? { ...e, text: newText } : e
+      );
+    },
+  },
+});
 
-})
+export const
