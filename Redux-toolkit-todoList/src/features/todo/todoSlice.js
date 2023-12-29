@@ -7,7 +7,7 @@ const initialState = {
   todos: [
     {
       id: 1,
-      textValue: "Hello World",
+      textValue: "Brush teeth",
       date: new Date().toLocaleString(),
     },
   ],
