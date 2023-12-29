@@ -48,9 +48,10 @@ export const TodoSlice = createSlice({
       // destructure
       const { id, newText } = action.payload;
       state.todos = state.todos.map((e) =>
-        e.id === id ? { ...e, text: newText } : e
+        e.id === id ? { ...e, textValue: newText } : e
       );
     },
+    
   },
 });
 
