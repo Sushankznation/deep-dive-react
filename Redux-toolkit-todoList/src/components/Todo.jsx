@@ -22,6 +22,7 @@ export default function Todo() {
 
   return (
     <div className="h-screen bg-gray-200 w-full flex justify-center items-center flex-col">
+       <h1 className="text-center font-bold">Todo App </h1>
       <AddTodo />
       <ToastContainer />
       <ul className="list-none w-8/12 ml-auto text-center">
