@@ -18,12 +18,20 @@ export const TodoSlice = createSlice({
   reducers: {
     // reducers contain Properties and Function
     addTodo: (state, action) => {
-      const todo = {
-        id: nanoid(),
-        text: action.payload,
-      };
-      state.todos.push(todo);
+      const newText = action.payload.trim(); // Remove leading and trailing spaces
+    
+      if (newText !== "") {
+        const todo = {
+          id: nanoid(),
+          text: newText,
+        };
+        state.todos.push(todo);
+        alert("Added Successfully")
+      } else {
+        alert("Cannot add an empty todo");
+      }
     },
+    
     // (state,action)
     //state : holds the current state
     //  action : tells where we need to impact that action like keys detector for add todo, delete etc.
