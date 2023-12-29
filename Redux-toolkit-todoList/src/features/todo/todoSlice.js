@@ -8,6 +8,7 @@ const initialState = {
     {
       id: 1,
       textValue: "Hello World",
+      date: new Date().toLocaleString(),
     },
   ],
 };
@@ -25,7 +26,8 @@ export const TodoSlice = createSlice({
       if (newText !== "") {
         const todo = {
           id: nanoid(),
-          text: newText,
+          textValue: newText,
+          date: new Date().toLocaleString(),
         };
         state.todos.push(todo);
         toast.success("Task Added");

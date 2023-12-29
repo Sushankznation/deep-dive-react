@@ -20,7 +20,8 @@ export default function Todo() {
             className="mt-4 flex justify-between items-center bg-blue-800 px-4 py-2 rounded"
             key={todo.id}
           >
-            <div className="text-white">{todo.text}</div>
+            <div className="text-white">{todo.textValue}</div>
+            <div className="text-white">{todo.date}</div>
             <button
               onClick={() => dispatch(removeTodo(todo.id))}
               className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
