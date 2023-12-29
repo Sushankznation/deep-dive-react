@@ -16,7 +16,7 @@ export default function Todo() {
     if (updatedText !== null) {
       // Dispatch the updateTodo action with the updated text
       dispatch(updateTodo({ id: todo.id, newText: updatedText }));
-      toast.success("Updated Value Successfully ")
+      toast.success("Updated Value Successfully ");
     }
   };
 

@@ -51,7 +51,6 @@ export const TodoSlice = createSlice({
         e.id === id ? { ...e, textValue: newText } : e
       );
     },
-    
   },
 });
 
