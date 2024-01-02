@@ -42,7 +42,7 @@ export const TodoSlice = createSlice({
     // action.payload like
     removeTodo: (state, action) => {
       state.todos = state.todos.filter((task) => task.id !== action.payload);
-      toast.success("Deleted Successfully");
+      toast.warning("Deleted Successfully");
     },
     updateTodo: (state, action) => {
       // destructure
