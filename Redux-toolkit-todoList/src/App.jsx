@@ -5,7 +5,6 @@ function App() {
   return (
     <Provider store={store}>
       <div className="flex-1">
-     
         <Todo />
       </div>
     </Provider>
