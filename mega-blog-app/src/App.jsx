@@ -1,5 +1,6 @@
+import config from "./config/config"
 function App() {
-  console.log(import.meta.env.VITE_APPWRITE_URL)
+  console.log(config.appWriteUtl)
   return (
     <>
     <h1>Hello from App</h1>

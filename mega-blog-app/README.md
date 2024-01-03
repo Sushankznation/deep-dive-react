@@ -1,4 +1,5 @@
 - to  add .env file in gitignore just right click on the .env and add it to gitignore
 - "import.meta.env.VITE_APPWRITE_URL" : we use this format when we want to access the variables  from .env file (vite)
 - config.js file we use to export the environment because sometimes we "import.meta.env.VITE_APPWRITE_URL" this way dont work so 
- 
+- " appWriteUtl: String(import.meta.env.VITE_APPWRITE_URL)," this format in config.js make sure that the id a String only
+-  
