@@ -1,8 +1,9 @@
 {
     "better-comments.highlightPlainText": true,
+    "editor.acceptSuggestionOnEnter": "on",
     "audioCues.chatRequestSent": "on",
     "better-comments.tags": [
-        
+
         {
             "tag": "!",
             "color": "#FF2D00",
@@ -48,5 +49,7 @@
             "bold": false,
             "italic": false
         }
-    ]
+    ],
+    "editor.fontVariations": false,
+    "workbench.settings.editor": "ui"
 }
