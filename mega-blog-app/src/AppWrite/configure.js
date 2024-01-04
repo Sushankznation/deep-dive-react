@@ -106,9 +106,12 @@ export class Service {
       await this.databases.deleteFile(config.appWriteBucketId, fileId);
       return true;
     } catch (error) {
-      console.log("Erorr Found in Deletig File at deleteFile : ", error);
+      console.log("Erorr Found in Delete File at deleteFile : ", error);
       return false;
     }
+  }
+  async previewFile(fileId) {
+    return await this.databases.getFilePreview(config.appWriteBucketId, fileId);
   }
 }
 const service = new Service();
