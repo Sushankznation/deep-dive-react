@@ -64,12 +64,11 @@ export class Service {
   }
   async getPost(slug) {
     try {
-      await this.databases.getDocument(
+      return await this.databases.getDocument(
         config.appWriteDatabaseId,
         config.appWriteCollectionId,
         slug
       );
-      return true;
     } catch (error) {
       console.log("Error in getting post", error);
       return false;
@@ -77,7 +76,7 @@ export class Service {
   }
   async getPosts(queries = [Query.equal("status", "active")]) {
     try {
-      await this.databases.listDocuments(
+      return await this.databases.listDocuments(
         config.appWriteDatabaseId,
         config.appWriteCollectionId,
         queries,
@@ -86,6 +85,28 @@ export class Service {
       );
     } catch (error) {
       console.log("Error in getting List Posts at getPOsts Methods : ", error);
+      return false;
+    }
+  }
+  //File upload services
+  async uploadFile(file) {
+    try {
+      return await this.databases.createFile(
+        config.appWriteBucketId,
+        ID.unique(),
+        file
+      );
+    } catch (error) {
+      console.log("Error in uploadingFile", error);
+      return false;
+    }
+  }
+  async deleteFile(fileId) {
+    try {
+      await this.databases.deleteFile(config.appWriteBucketId, fileId);
+      return true;
+    } catch (error) {
+      console.log("Erorr Found in Deletig File at deleteFile : ", error);
       return false;
     }
   }
