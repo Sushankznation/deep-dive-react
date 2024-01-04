@@ -1,5 +1,5 @@
-// This file contains the CRUD operation for our blog apps, 
-// Prefer Appwrite Docs for any changes and updation
+// This file contains the CRUD operation for our blog apps,
+// Prefer Appwrite Docs for any changes and update
 import config from "../config/config";
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
@@ -47,6 +47,32 @@ export class Service {
       );
     } catch (error) {
       console.log("Appwrite serive :: updatePost :: error", error);
+    }
+  }
+  async deletePost(slug) {
+    try {
+      await this.databases.deleteDocument(
+        config.appWriteDatabaseId,
+        config.appWriteCollectionId,
+        slug
+      );
+      return true;
+    } catch (error) {
+      console.log("Appwrite serive :: deletePost :: error", error);
+      return false;
+    }
+  }
+  async getPost(slug) {
+    try {
+      await this.databases.getDocument(
+        config.appWriteDatabaseId,
+        config.appWriteCollectionId,
+        slug
+      );
+      return true;
+    } catch (error) {
+      console.log("Error in getting post", error);
+      return false;
     }
   }
 }
