@@ -1,3 +1,5 @@
+// This file contains the CRUD operation for our blog apps, 
+// Prefer Appwrite Docs for any changes and updation
 import config from "../config/config";
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
@@ -30,7 +32,23 @@ export class Service {
       console.log("Errro ", error);
     }
   }
-  //Todo Rest CRUD
+  async updatePost(slug, { title, content, featuredImage, status }) {
+    try {
+      return await this.databases.updateDocument(
+        config.appWriteDatabaseId,
+        config.appWriteCollectionId,
+        slug,
+        {
+          title,
+          content,
+          featuredImage,
+          status,
+        }
+      );
+    } catch (error) {
+      console.log("Appwrite serive :: updatePost :: error", error);
+    }
+  }
 }
 const service = new Service();
 export default service;
