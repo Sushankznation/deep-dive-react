@@ -46,7 +46,7 @@ export class Service {
         }
       );
     } catch (error) {
-      console.log("Appwrite serive :: updatePost :: error", error);
+      console.log("Appwrite service :: updatePost :: error", error);
     }
   }
   async deletePost(slug) {
@@ -106,12 +106,16 @@ export class Service {
       await this.databases.deleteFile(config.appWriteBucketId, fileId);
       return true;
     } catch (error) {
-      console.log("Erorr Found in Delete File at deleteFile : ", error);
+      console.log("Error Found in Delete File at deleteFile : ", error);
       return false;
     }
   }
   async previewFile(fileId) {
     return await this.databases.getFilePreview(config.appWriteBucketId, fileId);
+  }
+  //Beyond The Project
+  async viewFile(fileId) {
+    return await this.databases.getFileView(config.appWriteBucketId, fileId);
   }
 }
 const service = new Service();
