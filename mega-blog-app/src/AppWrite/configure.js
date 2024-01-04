@@ -75,6 +75,20 @@ export class Service {
       return false;
     }
   }
+  async getPosts(queries = [Query.equal("status", "active")]) {
+    try {
+      await this.databases.listDocuments(
+        config.appWriteDatabaseId,
+        config.appWriteCollectionId,
+        queries,
+        100,
+        0
+      );
+    } catch (error) {
+      console.log("Error in getting List Posts at getPOsts Methods : ", error);
+      return false;
+    }
+  }
 }
 const service = new Service();
 export default service;
