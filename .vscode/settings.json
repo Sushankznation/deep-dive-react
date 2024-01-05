@@ -55,5 +55,6 @@
     "bitoAI.codeCompletion.enableAutoCompletion": true,
     "bitoAI.codeCompletion.enableCommentToCode": true,
     "bitoAI.codeCompletion.setAutoCompletionTriggerLogic": 250,
-    "editor.defaultFormatter": "Bito.Bito"
+    "editor.defaultFormatter": "Bito.Bito",
+    "BracketHighlighter.ignoreContent": false
 }
