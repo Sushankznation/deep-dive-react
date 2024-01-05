@@ -12,6 +12,7 @@ export default function Loader() {
       color="#fff"
       backgroundColor="#3BBADB"
     />
+    
     </div>
   );
 }
