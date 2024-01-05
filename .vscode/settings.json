@@ -51,5 +51,9 @@
         }
     ],
     "editor.fontVariations": false,
-    "workbench.settings.editor": "ui"
+    "workbench.settings.editor": "ui",
+    "bitoAI.codeCompletion.enableAutoCompletion": true,
+    "bitoAI.codeCompletion.enableCommentToCode": true,
+    "bitoAI.codeCompletion.setAutoCompletionTriggerLogic": 100,
+    "editor.defaultFormatter": "Bito.Bito"
 }
