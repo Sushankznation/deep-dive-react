@@ -2,11 +2,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login as authLogin } from "../../../Redux/features/authSlice";
-import { Button, Input } from "../../../UI/index";
+import { Button, Input } from "../../../UI";
 import AuthService from "../../../AppWrite/auth";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import authService from "../../../AppWrite/auth";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -17,12 +16,12 @@ export default function Login() {
   const login = async (data) => {
     setError("");
     try {
-      const session = await authService.login({
+      const session = await AuthService.login({
         email: data.email,
         password: data.password,
       });
       if (session) {
-        const userData = await authService.getCurrentUser();
+        const userData = await AuthService.getCurrentUser();
         if (userData) dispatch(authLogin({ userData }));
         navigate("/");
       }
