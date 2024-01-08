@@ -54,7 +54,10 @@
     "workbench.settings.editor": "ui",
     "bitoAI.codeCompletion.enableAutoCompletion": true,
     "bitoAI.codeCompletion.enableCommentToCode": true,
-    "bitoAI.codeCompletion.setAutoCompletionTriggerLogic": 250,
+    "bitoAI.codeCompletion.setAutoCompletionTriggerLogic": 100,
     "editor.defaultFormatter": "Bito.Bito",
-    "BracketHighlighter.ignoreContent": false
+    "BracketHighlighter.ignoreContent": false,
+    "workbench.colorCustomizations": {
+
+    }
 }
