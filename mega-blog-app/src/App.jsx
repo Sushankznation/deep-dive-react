@@ -3,7 +3,7 @@ import { Footer, Header } from "./components";
 import { useDispatch } from "react-redux";
 import authService from "./AppWrite/auth";
 import { login, logout } from "./Redux/features/authSlice";
-import Loader from "./UI/Loader";
+import Loader from "./UI";
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
