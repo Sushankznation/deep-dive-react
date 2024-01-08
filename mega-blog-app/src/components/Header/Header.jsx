@@ -8,27 +8,27 @@ export default function Header() {
   const navItems = [
     {
       name: "Home",
-      slug: "/",
+      url: "/",
       active: true,
     },
     {
       name: "Login",
-      slug: "/login",
+      url: "/login",
       active: !authStatus,
     },
     {
       name: "Signup",
-      slug: "/signup",
+      url: "/signup",
       active: !authStatus,
     },
     {
       name: "All Posts",
-      slug: "/all-posts",
+      url: "/all-posts",
       active: authStatus,
     },
     {
       name: "Add Post",
-      slug: "/add-post",
+      url: "/add-post",
       active: authStatus,
     },
   ];
@@ -36,12 +36,20 @@ export default function Header() {
   return (
     <header className="py-3 shadow-sm bg-slate-500">
       <Container>
-        <nav>
-          <div className="flex">
+        <nav className="flex">
+          <div className="mr-4">
             <Link to="/">LOGO</Link>
           </div>
           <ul className="flex ml-auto">
-           
+            {navItems.map((item) =>
+              item.active ? (
+                <li key={item}>
+                  <button onClick={() => navigate(item.url)}>
+                    {item.name}
+                  </button>
+                </li>
+              ) : null
+            )}
           </ul>
           {authStatus && (
             <li>
