@@ -2,6 +2,7 @@ import { Input, Button } from "../../../UI";
 import { useState } from "react";
 import { authService } from "../../../AppWrite/auth";
 import { useForm } from "react-hook-form";
+import { login as authLogin } from "../../../Redux/features/authSlice";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 export default function SignUp() {
@@ -13,17 +14,14 @@ export default function SignUp() {
   const create = async (data) => {
     setError("");
     try {
-      const session = await authService.signup({
-        email: data.email,
-        password: data.password,
-      });
-      if (session) {
+      const userData = await authService.createAccount(data);
+      if (userData) {
         const userData = await authService.getCurrentUser();
-        if (userData) dispatch(authService({ userData }));
+        if (userData) dispatch(authLogin(userData));
         navigate("/");
       }
     } catch (error) {
-      setError(error);
+      setError(error.message);
     }
   };
   return (
