@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { forwardRef, useId } from "react";
 
 const Select = forwardRef(function Select(
