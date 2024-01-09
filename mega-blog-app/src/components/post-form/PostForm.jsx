@@ -16,5 +16,8 @@ export default function PostForm({ post }) {
         status: post?.status || "active",
       },
     });
+  const navigate = useNavigate();
+  const userData = useSelector((state) => state.auth.userData);
+
   return <div></div>;
 }
