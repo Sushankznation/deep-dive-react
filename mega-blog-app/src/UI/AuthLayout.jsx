@@ -39,4 +39,4 @@ export default function Protected({ children, authentication = true }) {
 
   The component returns either a `Loader` component while authentication status is being verified, or the `children` content if authentication is successful.
 
-  Example Usage:
+  Example Usage: */
