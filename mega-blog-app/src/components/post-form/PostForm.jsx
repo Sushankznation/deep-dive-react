@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, Select } from "../UI";
 import RTE from "../RTE/RTE";
@@ -51,6 +51,7 @@ export default function PostForm({ post }) {
       }
     }
   };
+  //for urlTransform
   const slugTransform = useCallback((value) => {
     if (value) {
       return value
@@ -62,5 +63,16 @@ export default function PostForm({ post }) {
       return "";
     }
   }, []);
+  useEffect(() => {
+    const subscription = watch((value, { name }) => {
+      if (name === "title") {
+        setValue("slug", slugTransform(value.title, { shouldValidate: true }));
+      }
+    });
+    /*unsubscribe is being used to
+    avoid : memory leakage, infinite loop,
+    or can an easy way to tell that Im done you can do your job now , dont give me any update */
+    return () => subscription.unsubscribe();
+  }, [watch, slugTransform, setValue]);
   return <div></div>;
 }
