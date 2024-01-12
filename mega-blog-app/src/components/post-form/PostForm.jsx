@@ -51,5 +51,16 @@ export default function PostForm({ post }) {
       }
     }
   };
+  const slugTransform = useCallback((value) => {
+    if (value) {
+      return value
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, "")
+        .replace(/[\s_-]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+      return "";
+    }
+  }, []);
   return <div></div>;
 }
